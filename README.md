@@ -1,0 +1,4 @@
+intervals
+=========
+
+R package intervals
