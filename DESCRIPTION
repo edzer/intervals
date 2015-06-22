@@ -1,4 +1,4 @@
-Package: intervals
+Package: interval
 Version: 0.15.1
 Date: 2015-06-21
 Type: Package
