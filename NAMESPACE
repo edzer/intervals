@@ -10,6 +10,7 @@ useDynLib( "intervals" )
 import("methods")
 
 importFrom( "utils", "head", "tail" )
+importFrom( "graphics", "par", "points", "text", "axis" )
 
 ######## Exports
 
