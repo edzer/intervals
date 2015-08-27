@@ -124,8 +124,16 @@ extern "C"
     	else {
 	  // Query right
 	  q_active.erase( it->index );
-	  if ( q_right[ it->index ] > q_right[ *q_pending.begin() ] ) 
-	    q_pending.clear();
+//	  if ( q_right[ it->index ] > q_right[ *q_pending.begin() ] ) 
+//	    q_pending.clear();
+// EJP: trying to fix the clang-ASAN error,
+// EJP: replace these to lines with
+	  if (!q_pending.empty()) {
+	    if (it->index < length(qe) && *q_pending.begin() < length(qe) ) {
+	      if ( q_right[ it->index ] > q_right[ *q_pending.begin() ] )
+	        q_pending.clear();
+	    }
+	  }
 	  q_pending.insert( it->index );
 	}
       }
