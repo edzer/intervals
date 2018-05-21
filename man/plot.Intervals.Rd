@@ -27,6 +27,7 @@
      use_points = TRUE,
      use_names = TRUE,
      names_cex = 1,
+     text_col = NULL,
      ...
      )
 
@@ -84,6 +85,10 @@
       TRUE}.
   }
 
+  \item{text_col}{
+    Color of printed labels. Only relevant if \code{use_names = TRUE}.
+  }
+  
   \item{...}{Other arguments for \code{\link{plot.default}}.}
   
 }
