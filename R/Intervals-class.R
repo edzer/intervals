@@ -108,7 +108,7 @@ setClass(
            # Check 'closed' slot
            if (
                !is.logical( object@closed ) ||
-               dim( object@.Data ) != dim( object@closed ) ||
+               any( dim( object@.Data ) != dim( object@closed )) ||
                any( is.na( object@closed ) )
                )
              return( "The 'closed' slot should be a logical matrix with the same dimensions as the main endpoints matrix. NA values are not permitted." )
