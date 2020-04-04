@@ -8,7 +8,7 @@
 \title{Assess overlap from one set of intervals to another}
 
 \description{
-  Asses overlap from intervals in one set to intervals in another set,
+  Assess overlap from intervals in one set to intervals in another set,
   and return the relevant indices.
 }
 
