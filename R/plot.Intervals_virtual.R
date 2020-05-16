@@ -8,6 +8,7 @@ plot.Intervals_full <- function(
                                 use_points = TRUE,
                                 use_names = TRUE,
                                 names_cex = 1,
+                                text_col = NULL,
                                 ...
                                 )
 {
@@ -15,12 +16,12 @@ plot.Intervals_full <- function(
   # appropriate for the region shown.
 
   if ( any( is.na( x ) ) ) x <- x[ !is.na(x), ]
-  
+
   if ( is.null(xlim) )
     xlim <- range( x@.Data )
   else
     x <- x[ x[,2] >= xlim[1] & x[,1] <= xlim[2], ]
-  
+
   if ( is.null(y) )
     y <- .Call( "_plot_overlap", x@.Data, closed(x), is( x, "Intervals_full" ) )
 
@@ -42,14 +43,14 @@ plot.Intervals_full <- function(
            col = col,
            lwd = lwd
            )
-  if ( use_points ) {   
+  if ( use_points ) {
     # Careful with points...
     adjust <- ( x[,1] == x[,2] ) & !closed(x)[,1]
     closed(x)[ adjust, 2 ] <- FALSE
     points(
            x@.Data, rep( y, 2 ),
            pch = 21, cex = cex,
-           col = col, bg = ifelse( closed(x), col, "white" )           
+           col = col, bg = ifelse( closed(x), col, "white" )
            )
   }
   if ( use_names && !is.null( rownames(x) ) ) {
@@ -59,12 +60,13 @@ plot.Intervals_full <- function(
          rownames( x ),
          pos = 3, offset = .5,
          cex = names_cex,
-         xpd = NA
-         )         
+         xpd = NA,
+         col = text_col
+         )
   }
   if ( axes )
     axis( 1 )
-}  
+}
 
 plot.Intervals <- function( x, y = NULL, ... ) {
   plot( as( x, "Intervals_full" ), y, ... )
