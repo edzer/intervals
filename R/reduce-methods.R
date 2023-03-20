@@ -15,7 +15,7 @@ setMethod(
             # In order to collapse over abutting intervals over Z
             if ( type(x) == "Z" ) x <- open_intervals( x )
             result <- .Call(
-                            "_reduce",
+                            `_reduce`,
                             x@.Data,
                             closed( x ),
                             is( x, "Intervals_full" )
