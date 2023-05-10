@@ -22,7 +22,7 @@ plot.Intervals_full <- function(
     x <- x[ x[,2] >= xlim[1] & x[,1] <= xlim[2], ]
   
   if ( is.null(y) )
-    y <- .Call( "_plot_overlap", x@.Data, closed(x), is( x, "Intervals_full" ) )
+    y <- .Call( `_plot_overlap`, x@.Data, closed(x), is( x, "Intervals_full" ) )
 
   if ( is.null(ylim) )
     ylim <- c( 0, max( y ) )

@@ -21,7 +21,7 @@ setMethod(
               from <- close_intervals( from )
             }
             result <- .Call(
-                            "_which_nearest",
+                            `_which_nearest`,
                             to@.Data, from@.Data,
                             closed(to), closed(from),
                             class(to) == "Intervals_full", class(from) == "Intervals_full"

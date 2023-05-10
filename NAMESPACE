@@ -1,6 +1,6 @@
 ######## Compiled code
 
-useDynLib( "intervals" )
+useDynLib( "intervals", .registration = TRUE )
 
 ######## Imports
 

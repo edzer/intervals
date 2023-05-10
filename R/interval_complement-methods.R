@@ -23,7 +23,7 @@ setMethod(
                       if ( is.finite( x[nrow(x),2] ) ) c( x[nrow(x),2], Inf ) else NULL
                       )
             closed <-
-              if ( class(x) == "Intervals" )
+              if ( inherits(x, "Intervals") )
                 # Note that we ignore closure for non-finite endpoints.
                 !closed(x)[2:1]
               else
