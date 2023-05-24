@@ -1,10 +1,12 @@
-#include <R.h>
-#include <Rinternals.h>
 #include "Endpoint.h"
+
 #include <limits>
 #include <vector>
 #include <set>
 #include <algorithm>
+
+#include <R.h>
+#include <Rinternals.h>
 
 /*
   #### What we require to prevent segfaults:

@@ -1,9 +1,11 @@
 #ifndef ENDPOINT_H
 
 #define ENDPOINT_H
+
+#include <vector>
+
 #include <R.h>
 #include <Rinternals.h>
-#include <vector>
 
 
 
