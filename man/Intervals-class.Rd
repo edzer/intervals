@@ -106,8 +106,8 @@
     \item{[}{\code{ signature(x = "Intervals_full")} }
     \item{[<-}{\code{ signature(x = "Intervals", i = "ANY", j = "missing", value = "Intervals_virtual")} }
     \item{[<-}{\code{ signature(x = "Intervals_full", i = "ANY", j = "missing", value = "Intervals_virtual")} }
-    \item{adjust\_closure}{\code{ signature(x = "Intervals")} }
-    \item{adjust\_closure}{\code{ signature(x = "Intervals_full")} }
+    \item{adjust_closure}{\code{ signature(x = "Intervals")} }
+    \item{adjust_closure}{\code{ signature(x = "Intervals_full")} }
     \item{closed<-}{\code{ signature(x = "Intervals")} }
     \item{closed<-}{\code{ signature(x = "Intervals_full")} }
     \item{coerce}{\code{ signature(from = "Intervals", to = "Intervals_full")} }

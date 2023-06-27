@@ -1,5 +1,5 @@
 Package: intervals
-Version: 0.15.3
+Version: 0.15.4
 Type: Package
 Title: Tools for Working with Points and Intervals
 Author: Richard Bourgon <bourgon.richard@gene.com>
