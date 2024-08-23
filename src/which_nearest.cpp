@@ -64,8 +64,8 @@ extern "C"
   SEXP _which_nearest(SEXP qe, SEXP te, SEXP qc, SEXP tc, SEXP q_full, SEXP t_full) {
     
     // Load data, combine
-    int qn = nrows(qe);
-    int tn = nrows(te);
+    int qn = Rf_nrows(qe);
+    int tn = Rf_nrows(te);
 
     Endpoints q ( REAL(qe), LOGICAL(qc), qn, true, *LOGICAL(q_full) );
     Endpoints t ( REAL(te), LOGICAL(tc), tn, false, *LOGICAL(t_full) );
@@ -187,11 +187,11 @@ extern "C"
     // Prepare and return result.
     SEXP result;
 
-    PROTECT( result = allocVector( VECSXP, 3 ) );
+    PROTECT( result = Rf_allocVector( VECSXP, 3 ) );
 
-    SET_VECTOR_ELT( result, 0, allocVector( REALSXP, tn ) ); // delta
-    SET_VECTOR_ELT( result, 1, allocVector( VECSXP, tn ) ); // which
-    SET_VECTOR_ELT( result, 2, allocVector( VECSXP, tn ) ); // which_overlap
+    SET_VECTOR_ELT( result, 0, Rf_allocVector( REALSXP, tn ) ); // delta
+    SET_VECTOR_ELT( result, 1, Rf_allocVector( VECSXP, tn ) ); // which
+    SET_VECTOR_ELT( result, 2, Rf_allocVector( VECSXP, tn ) ); // which_overlap
 
     copy( 
 	 delta.begin(), delta.end(),
@@ -201,7 +201,7 @@ extern "C"
     for( i = 0; i < tn; i++ ) {      
       SET_VECTOR_ELT( 
 		     VECTOR_ELT( result, 1 ), i, 
-		     allocVector( INTSXP, which[i].size() ) 
+		     Rf_allocVector( INTSXP, which[i].size() ) 
 		      );
       copy( 
 	   which[i].begin(), which[i].end(), 
@@ -209,7 +209,7 @@ extern "C"
 	    );
       SET_VECTOR_ELT( 
 		     VECTOR_ELT( result, 2 ), i, 
-		     allocVector( INTSXP, indices[i].size() ) 
+		     Rf_allocVector( INTSXP, indices[i].size() ) 
 		      );
       copy( 
 	   indices[i].begin(), indices[i].end(), 

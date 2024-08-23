@@ -38,7 +38,7 @@ extern "C"
   SEXP _plot_overlap(SEXP e, SEXP c, SEXP full) {
 
     // Load data and sort
-    int n = nrows(e);
+    int n = Rf_nrows(e);
     bool full_bool = *LOGICAL(full); 
     Endpoints ep ( REAL(e), LOGICAL(c), n, false, full_bool );
 
@@ -77,7 +77,7 @@ extern "C"
     // Prepare and return result.
     SEXP result;
 
-    PROTECT( result = allocVector( INTSXP, n ) );    
+    PROTECT( result = Rf_allocVector( INTSXP, n ) );    
     copy( y.begin(), y.end(), INTEGER( result ) );
     UNPROTECT(1);
     return( result );    
