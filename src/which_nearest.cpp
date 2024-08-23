@@ -131,7 +131,7 @@ extern "C"
 // EJP: trying to fix the clang-ASAN error,
 // EJP: replace these to lines with
 	  if (!q_pending.empty()) {
-	    if (it->index < length(qe) && *q_pending.begin() < Rf_length(qe) ) {
+	    if (it->index < Rf_length(qe) && *q_pending.begin() < Rf_length(qe) ) {
 	      if ( q_right[ it->index ] > q_right[ *q_pending.begin() ] )
 	        q_pending.clear();
 	    }
